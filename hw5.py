@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import csv
+import json
+import pickle
 
 
 def main(filename):
@@ -37,7 +39,7 @@ def main(filename):
     # a,12345
     # I,23456
     # ...
-    with open('wordcount.csv','w',newline='') as csv_file:
+    with open('wordcount.csv','w',newline='') as csvfile:
         # create a csv writer from a file object (or descriptor)
         writer = csv.writer(csvfile)
         # write table head
@@ -49,7 +51,10 @@ def main(filename):
     json.dump(counter, open("wordcount.json", 'w'))
 
     # BONUS: dump to a pickle file named "wordcount.pkl"
+
     # hint: dump the Counter object directly
+    with open('wordcount.pkl','wb') as pklfile:
+        pickle.dump(counter,pklfile)
 
 
 if __name__ == '__main__':
