@@ -38,7 +38,7 @@ def main(filename):
     # word,count
     # a,12345
     # I,23456
-    # ...
+    
     with open('wordcount.csv','w',newline='') as csvfile:
         # create a csv writer from a file object (or descriptor)
         writer = csv.writer(csvfile)
