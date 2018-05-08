@@ -2,6 +2,7 @@
 import csv
 import json
 import pickle
+import string
 
 
 def main(filename):
@@ -22,12 +23,12 @@ def main(filename):
         for word in words:
             # then, remove (strip) unwanted punctuations from every word
             # "dream." => "dream"
-            word = word.strip('(*&^%$#$%^&*()(*&(*&^%$#$%^&*^')
+            word = word.strip(string.punctuation)
             
             # check if word is not empty
-            if word != '' :
-                 # append the word to "all_words" list
-                 all_words.append(word)
+            if word != '':
+                # append the word to "all_words" list
+                all_words.append(word)
 
     # compute word count from all_words
     from collections import Counter
@@ -39,7 +40,7 @@ def main(filename):
     # a,12345
     # I,23456
     
-    with open('wordcount.csv','w',newline='') as csvfile:
+    with open('wordcount.csv', 'w', newline='') as csvfile:
         # create a csv writer from a file object (or descriptor)
         writer = csv.writer(csvfile)
         # write table head
@@ -53,8 +54,8 @@ def main(filename):
     # BONUS: dump to a pickle file named "wordcount.pkl"
 
     # hint: dump the Counter object directly
-    with open('wordcount.pkl','wb') as pklfile:
-        pickle.dump(counter,pklfile)
+    with open('wordcount.pkl', 'wb') as pklfile:
+        pickle.dump(counter, pklfile)
 
 
 if __name__ == '__main__':
